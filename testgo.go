@@ -1,8 +1,12 @@
+//
+// tester
+//
 package main
 
 import (
 	"fmt"
         "gopkg.in/yaml.v3"
+	"github.com/golang/glog"
 )
 
 func main() {
@@ -12,4 +16,5 @@ func main() {
 	}
 	yaml.Marshal(&T{B: 2}) // Returns "b: 2\n"
         fmt.Println("succeeded")
+	glog.V(4).Infof("succeeded")
 }

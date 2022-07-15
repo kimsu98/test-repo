@@ -10,21 +10,27 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: checkout repo
         uses: actions/checkout@v2
 
-      - name: Cache local Go cache
+      - name: Cache local Maven repository
         uses: actions/cache@v2
         with:
-          path: ~/.cache/go-mod
-          key: ${{ runner.os }}-gomod-${{ hashFiles('**/pom.xml') }}
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-java${{ matrix.java }}-${{ hashFiles('**/pom.xml') }}
+
+      - name: Cache local Go cache
+        id: cache-go-mods
+        uses: actions/cache@v2
+        with:
+          path: ~/go/pkg/mod
+          key: ${{ runner.os }}-gomod-${{ hashFiles('**/go.mod') }}
           restore-keys: |
             ${{ runner.os }}-gomod-
+            ${{ runner.os }}-
 
       - name: Execute go module download test
         run: |
-          mkdir -p ~/.cache
           ./run_test.sh
         timeout-minutes: 60
