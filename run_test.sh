@@ -12,5 +12,5 @@
 
 set -eux
 
-echo "GOMODCACHE=" $GOMODCACHE
+#echo "GOMODCACHE=" $GOMODCACHE
 GO111MODULE=on go build -o testgo "testgo.go"
