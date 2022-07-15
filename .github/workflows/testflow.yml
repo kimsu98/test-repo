@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-        GOMODCACHE: ${{ runner.tool_cache }}/.cache/go-mod
+        GOMODCACHE: /home/runner/.cache/go-mod
     steps:
       - name: checkout repo
         uses: actions/checkout@v2
