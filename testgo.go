@@ -6,6 +6,8 @@ package main
 import (
 	"fmt"
         "gopkg.in/yaml.v3"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 func main() {
