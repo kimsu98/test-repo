@@ -10,7 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+        GOMODCACHE: ~/.cache/go-mod
     steps:
       - name: checkout repo
         uses: actions/checkout@v2
@@ -18,8 +19,6 @@ jobs:
       - name: Cache local Go cache
         id: cache-go-mods
         uses: actions/cache@v2
-	env:
-	    GOMODCACHE: ~/.cache/go-mod
         with:
           path: $GOMODCACHE
           key: ${{ runner.os }}-gomod-${{ hashFiles('**/go.mod') }}
