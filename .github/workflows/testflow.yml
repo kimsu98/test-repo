@@ -20,7 +20,7 @@ jobs:
         id: cache-go-mods
         uses: actions/cache@v2
         with:
-          path: ${{ env.HOME }}/.cache/go-mod
+          path: ${{ HOME }}/.cache/go-mod
           key: ${{ runner.os }}-gomod-${{ hashFiles('**/go.mod') }}
           restore-keys: |
             ${{ runner.os }}-gomod-
