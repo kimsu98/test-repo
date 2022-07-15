@@ -16,12 +16,16 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Cache local Go cache
+        id: cache-go-mods
         uses: actions/cache@v2
+	env:
+	    GOMODCACHE: ~/.cache/go-mod
         with:
-          path: ~/.cache/go-mod
+          path: $GOMODCACHE
           key: ${{ runner.os }}-gomod-${{ hashFiles('**/go.mod') }}
           restore-keys: |
             ${{ runner.os }}-gomod-
+            ${{ runner.os }}-
 
       - name: Execute go module download test
         run: |
