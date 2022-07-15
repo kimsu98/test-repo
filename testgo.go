@@ -1,7 +1,6 @@
 //
 // tester
 //
-//
 package main
 
 import (
