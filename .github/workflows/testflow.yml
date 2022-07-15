@@ -10,8 +10,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-        GOMODCACHE: ~/go/pkg/mod
+#    env:
+#        GOMODCACHE: ~/go/pkg/mod
     steps:
       - name: checkout repo
         uses: actions/checkout@v2
@@ -20,7 +20,7 @@ jobs:
         id: cache-go-mods
         uses: actions/cache@v2
         with:
-          path: ${{ env.GOMODCACHE }}
+          path: ~/go/pkg/mod
           key: ${{ runner.os }}-gomod-${{ hashFiles('**/go.mod') }}
           restore-keys: |
             ${{ runner.os }}-gomod-
