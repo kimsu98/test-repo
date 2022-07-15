@@ -1,0 +1,30 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Test Workflow
+
+on:
+  pull_request:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+
+      - name: Cache local Go cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/go-mod
+          key: ${{ runner.os }}-gomod-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-gomod-
+
+      - name: Execute go module download test
+        run: |
+          mkdir -p ~/.cache
+          ./run_test.sh
+        timeout-minutes: 60
