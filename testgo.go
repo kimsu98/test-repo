@@ -16,5 +16,5 @@ func main() {
 	}
 	yaml.Marshal(&T{B: 2}) // Returns "b: 2\n"
         fmt.Println("succeeded")
-	glog("succeeded")
+	glog.V(4).Infof("succeeded")
 }
