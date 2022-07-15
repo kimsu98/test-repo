@@ -10,8 +10,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-#    env:
-#        GOMODCACHE: ~/go/pkg/mod
     steps:
       - name: checkout repo
         uses: actions/checkout@v2
@@ -28,6 +26,5 @@ jobs:
 
       - name: Execute go module download test
         run: |
-          mkdir -p ~/.cache
           ./run_test.sh
         timeout-minutes: 60
