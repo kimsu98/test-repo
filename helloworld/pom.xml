@@ -4,7 +4,7 @@
 
   <groupId>com.alluxio</groupId>
   <artifactId>helloworld</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <packaging>jar</packaging>
 
   <name>Hello World</name>
@@ -14,7 +14,7 @@
     <connection>scm:git:git@github.com:kimsu98/test-repo.git</connection>
     <developerConnection>scm:git:git@github.com:kimsu98/test-repo.git</developerConnection>
     <url>scm:git:git@github.com:kimsu98/test-repo.git</url>
-    <tag>HEAD</tag>
+    <tag>v1.0.2</tag>
   </scm>
   <parent>
     <groupId>org.sonatype.oss</groupId>
@@ -26,7 +26,7 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <jdk.version>1.8</jdk.version>
     <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
-    <argLine></argLine>
+    <argLine />
     <apache.curator.version>4.2.0</apache.curator.version>
     <aws.amazonaws.version>1.11.815</aws.amazonaws.version>
     <build.path>build</build.path>
